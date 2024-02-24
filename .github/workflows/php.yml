@@ -71,7 +71,7 @@ jobs:
         with:
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.docker_meta.outputs.tags }}
-          cache-from: type=registry,ref=${{ env.registry }}/${{ github.repository_owner }}/${{ env.package-name }}:latest
+          cache-from: type=registry,ref=${{ env.registry }}/${{ github.repository_owner }}/${{ env.package-name }}:${{ matrix.php-version }}
           labels: ${{ steps.docker_meta.outputs.labels }}
           annotations: ${{ steps.docker_meta.outputs.annotations }}
           file: php/Dockerfile
