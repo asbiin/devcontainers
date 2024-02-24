@@ -47,9 +47,7 @@ jobs:
             type=schedule
             type=ref,event=pr
             type=raw,value=latest,enable=${{ github.ref == 'refs/heads/main' && matrix.php-version == env.default-php-version }}
-          flavor: |
-            latest=auto
-            suffix=${{ matrix.php-version }},onlatest=false
+            type=raw,value=${{ matrix.php-version }}
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
