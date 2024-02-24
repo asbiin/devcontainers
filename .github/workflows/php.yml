@@ -78,12 +78,12 @@ jobs:
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
 
-      - name: Prune images
-        uses: vlaurin/action-ghcr-prune@v0.6.0
-        if: github.event_name != 'pull_request'
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          organization: ${{ github.repository_owner }}
-          container: ${{ env.package-name }}
-          keep-younger-than: 15
-          prune-untagged: true
+    #   - name: Prune images
+    #     uses: vlaurin/action-ghcr-prune@v0.6.0
+    #     if: github.event_name != 'pull_request'
+    #     with:
+    #       token: ${{ secrets.GITHUB_TOKEN }}
+    #       organization: ${{ github.repository_owner }}
+    #       container: ${{ env.package-name }}
+    #       keep-younger-than: 15
+    #       prune-untagged: true
