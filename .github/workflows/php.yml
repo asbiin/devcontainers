@@ -4,8 +4,14 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'php/**'
+      - '.github/workflows/php.yml'
   pull_request:
     types: [opened, synchronize, reopened]
+    paths:
+      - 'php/**'
+      - '.github/workflows/php.yml'
 
   workflow_dispatch:
 
