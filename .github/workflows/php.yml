@@ -44,10 +44,9 @@ jobs:
         with:
           images: ${{ env.registry }}/${{ github.repository_owner }}/${{ env.package-name }}
           tags: |
-            type=schedule
-            type=ref,event=pr
+            type=ref,enable=true,priority=600,prefix=${{ matrix.php-version }}-pr-,suffix=,event=pr
             type=raw,value=latest,enable=${{ github.ref == 'refs/heads/main' && matrix.php-version == env.default-php-version }}
-            type=raw,value=${{ matrix.php-version }}
+            type=raw,value=${{ matrix.php-version }},enable=${{ github.ref == 'refs/heads/main' }}
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
