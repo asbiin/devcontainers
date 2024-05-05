@@ -16,7 +16,7 @@ on:
   workflow_dispatch:
 
   schedule:
-    - cron: "7 7 * * Sun"
+    - cron: "7 17 * * Sun"
 
 concurrency:
   group: php ${{ github.ref }}
