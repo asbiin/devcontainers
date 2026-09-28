@@ -75,3 +75,6 @@ RUN set -ex; \
 
 # Install yarn globally
 RUN npm install -g --unsafe-perm yarn
+
+# Install bun
+RUN npm install -g --unsafe-perm bun
